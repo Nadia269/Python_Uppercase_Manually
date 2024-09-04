@@ -1,0 +1,29 @@
+class StringManipulator:
+    def __init__(self, input_str):
+        self.input_str = input_str
+
+    def to_uppercase(self):
+        return self.input_str.upper()
+
+    def count_digits(self):
+        return sum(char.isdigit() for char in self.input_str)
+
+    def count_special_characters(self):
+        return sum(not char.isalnum() and not char.isspace() for char in self.input_str)
+
+while True:
+    input_str = input("Enter a string (or type 'exit' to quit): ")
+
+    if input_str.lower() == "exit":
+        print("Exiting the program.")
+        break
+
+    manipulator = StringManipulator(input_str)
+
+    uppercase_str = manipulator.to_uppercase()
+    digit_count = manipulator.count_digits()
+    special_char_count = manipulator.count_special_characters()
+
+    print("Uppercase version:", uppercase_str)
+    print("Number of digits:", digit_count)
+    print("Number of special characters:", special_char_count)
